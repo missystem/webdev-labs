@@ -2,23 +2,45 @@ body * {
     box-sizing: border-box;
 }
 
+@import url('https://fonts.googleapis.com/css?family=Open+Sans|Open+Sans+Condensed:300');
+
 body {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Open Sans', sans-serif;
+}
+h1 {
+   font-family: 'Open Sans Condensed', sans-serif;
+   color: #000;
+}
+div {
+   display: none;
 }
 
 /*
 Add some style blocks below this line to style the cards.
 Feel free to borrow from Exercise 1.
 */
+h1 {
+   font-family: 'Open Sans Condensed', sans-serif;
+   color: #000;
+}
+div {
+   display: none;
+}
 
 
 /* Tablet Media Query */
 @media only screen and (max-width: 1000px) {
-
+    body { background: white; }
+   .tablets-portrait {
+      display: block;
+   }
 }
 
 /* Mobile Phone Media Query */
 @media only screen and (max-width: 600px) {
-
+    body { background: white; }
+    .most-smartphones {
+        display: block;
+    }
     
 }
