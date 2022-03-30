@@ -2,45 +2,52 @@ body * {
     box-sizing: border-box;
 }
 
-@import url('https://fonts.googleapis.com/css?family=Open+Sans|Open+Sans+Condensed:300');
-
 body {
-    font-family: 'Open Sans', sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
 }
-h1 {
-   font-family: 'Open Sans Condensed', sans-serif;
-   color: #000;
+
+main {
+    display: flex;
 }
-div {
-   display: none;
+
+section h2 {
+    font-family: 'IBM Plex Sans Arabic', sans-serif;
+}
+
+section {
+    width: 350px;
+    margin: 10px;
+    border: solid 1px #e6e6e6;
+    /* padding-top: 10px; */
+    padding-bottom: 10px;
+}
+
+section img {
+    width: 100%;
+}
+
+section p, section button {
+    margin-left: 10px;
+    margin-right: 10px;
 }
 
 /*
 Add some style blocks below this line to style the cards.
 Feel free to borrow from Exercise 1.
 */
-h1 {
-   font-family: 'Open Sans Condensed', sans-serif;
-   color: #000;
-}
-div {
-   display: none;
-}
-
-
 /* Tablet Media Query */
 @media only screen and (max-width: 1000px) {
-    body { background: white; }
-   .tablets-portrait {
-      display: block;
-   }
+    main {
+        flex-wrap: wrap;
+    }
+    section {
+        width: calc(50% - 20px);
+    }
 }
 
-/* Mobile Phone Media Query */
+/* MobilePhone Media Query */
 @media only screen and (max-width: 600px) {
-    body { background: white; }
-    .most-smartphones {
-        display: block;
+    section {
+        width: 100%;
     }
-    
 }
