@@ -24,7 +24,14 @@ nav ul {
 }
 
 main {
+    width: 350px;
     margin: 3vh;
+    border: solid 1px #e6e6e6;
+    /* padding-bottom: ; */
+}
+
+main img {
+    width: 100%;
 }
 
 
