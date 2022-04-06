@@ -79,7 +79,6 @@ def exercise4():
     if not (location and search_term):
         return '"location" and "term" are required query parameters'
     
-    
     url = 'https://www.apitutor.org/yelp/simple/v3/businesses/search?location={0}&term={1}'.format(location, search_term)
     response = requests.get(url)
     restaurants = response.json()
