@@ -12,10 +12,10 @@
 
     <main>
         <section>
-            <h3>{{ restaurant.get('name') }}</h3>
+            <h2>{{ restaurant.get('name') }}</h2>
             <img src="{{ restaurant.get('image_url') }}" alt="Picture of restaurant" />
             <div class="reviews">
-                <p>{{ restaurant.get('display_address') }}</p>
+                <p class="address">{{ restaurant.get('display_address') }}</p>
             </div>
             <div class="reviews">
                 <p class="left">Price: </p>
