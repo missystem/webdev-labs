@@ -11,17 +11,29 @@
     {% include 'includes/header.html' %}
 
     <main>
-        <p>Search location: {{location}}</p>
-        <p>Search term: {{search_term or 'None Specified'}}</p>
-        <h2>Top Restaurant:</h2> 
-        <h4>{{ restaurant.get('name') }}</h4>
-        <img src="{{ restaurant.get('image_url') }}" alt="Picture of restaurant" width="300" />
-        <p>{{ restaurant.get('display_address') }}</p>
-        
-        <p>Price: {{ restaurant.get('price') }}</p>
-        <p>Rating: {{ restaurant.get('rating') }}</p>
-        <p># Reviews: {{restaurant.get('review_count')}}</p>
-        
+        <section>
+            <h3>{{ restaurant.get('name') }}</h3>
+            <img src="{{ restaurant.get('image_url') }}" alt="Picture of restaurant" />
+            <div class="reviews">
+                <p>{{ restaurant.get('display_address') }}</p>
+            </div>
+            <div class="reviews">
+                <p class="left">Price: </p>
+                <p class="right">{{ restaurant.get('price') }}</p>
+            </div>
+            <hr>
+            <div class="reviews">
+                <p class="left">Rating: </p>
+                <p class="right">{{ restaurant.get('rating') }}</p>
+            </div>
+            <hr>
+            <div class="reviews">
+                <p class="left"># Reviews: </p>
+                <p class="right">{{restaurant.get('review_count')}}</p>
+            </div>
+            <hr>
+                
+        </section>
         
     </main>
 </body>

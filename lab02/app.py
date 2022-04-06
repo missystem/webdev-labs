@@ -33,7 +33,6 @@ quotes = (
 def exercise1():
     return f'Hi {current_user.get_full_name()}!'
 
-
 ##############
 # Exercise 2 #
 ##############

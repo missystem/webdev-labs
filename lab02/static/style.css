@@ -24,21 +24,70 @@ nav ul {
 }
 
 main {
+    display: flex;
+}
+
+section {
     width: 350px;
     margin: 3vh;
     border: solid 1px #e6e6e6;
-    /* padding-bottom: ; */
+    padding-bottom: 10px;
 }
 
-main img {
+section img {
     width: 100%;
 }
 
+h3 {
+    margin-left: 15px;
+}
+
+section p {
+    margin-top: 15px;
+}
+
+hr {
+    display: block;
+    /* margin-top: 0.5em;
+    margin-bottom: 0.5em; */
+    margin-left: auto;
+    margin-right: auto;
+    border: solid 0.1px #e6e6e6;
+    /* border-style: inset;
+    border-width: 0.01px;
+    color: #e6e6e6; */
+}
+
+.reviews {
+    display: flex;
+    margin-left: 30px;
+    
+    /* justify-content: space-around; */
+}
+
+.left {
+    display: flex;
+    width: 80px;
+    /* margin-left: 10px; */
+}
+.right {
+    display: flex;
+    margin-left: 20px;
+}
 
 @media only screen and (max-width: 1000px) {
     /* Media queries go here */
+    main {
+        flex-wrap: wrap;
+    }
+    section {
+        width: calc(50% - 20px);
+    }
 }
 
 @media only screen and (max-width: 600px) {
     /* Media queries go here */
+    section {
+        width: 100%;
+    }
 }
