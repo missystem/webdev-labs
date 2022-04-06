@@ -100,7 +100,6 @@ def photos_static():
     if not (location and search_term):
         return '"location" and "term" are required query parameters'
     
-    
     return render_template('cards.html')
 
 
