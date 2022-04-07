@@ -10,7 +10,9 @@ body {
 Add some style blocks below this line to style the card.
 */
 section {
-    width: 350px;
+    /* width: 350px; */
+    /* width: 100%; */
+    width: 30%;
     margin: 10px;
     border: solid 1px #e6e6e6;
     /* padding-top: 10px; */
@@ -24,5 +26,5 @@ section img {
 section h2, section p, section button {
     margin-left: 10px;
     margin-right: 10px;
-
+    /* margin: 5% 5%;     first argument is the topbottom, second is the leftright */
 }
