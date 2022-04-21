@@ -1,0 +1,7 @@
+1. What is the value of SQLAlchemy?
+
+
+2. What is a model?
+
+
+3. What is a view?
