@@ -1,13 +1,31 @@
 1. What is the value of SQLAlchemy?
-    gives application developers the full power and flexibility of SQL
-    a python abstraction that makes communication with databases easier
-    (efficient and high-performing database access)
-    a library that facilitates the communication between Python programs and databases
+    Gives application developers the full power and flexibility of SQL
+    A python abstraction that makes communication with databases easier
+      (efficient and high-performing database access)
+    A library that facilitates the communication between Python programs and databases
 
 2. What is a model?
-    Model is a class within the SQLAlchemy project
-    Rather than writing SQL directly, interact with SQL Alchemy "models" that issues SQL queries under-the-hood
-    Then we are able to create, update, and delete 
+    Rather than writing SQL directly, interact with SQLAlchemy "models" that issues 
+      SQL queries under-the-hood, then we can create, update, and delete from a 
+      data table.
+    "
+    A feature of SQLAlchemy
+    Models provide representations of each data table in the form of Python classes so 
+      that you can interact with rows in each table just like you'd interact with any 
+      Python class instance.
+    "
+    https://flask-sqlalchemy.palletsprojects.com/en/2.x/models/
+
+    
 3. What is a view?
-    A view is like a virtual table, rows and columns as they are in a real table in the database.
-    can either ahve all the rows of a table or specific rows based on certain condition.
+    "
+    A feature of Flask RESTful
+    Views define which API resources (ie. post, posts, user, users, etc.) are available
+      via API as well as which methods (GET, POST, PATCH, DELETE, etc.) are available 
+      for each resource. 
+    They also define the functionality that is invoked when each endpoint is requested.
+    "
+    https://flask-restful.readthedocs.io/en/latest/quickstart.html#resourceful-routing
+    
+
+Credits: Carina Ramos
