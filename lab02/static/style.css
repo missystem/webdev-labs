@@ -1,0 +1,115 @@
+body * {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+}
+
+header {
+    padding: 3vh;
+    background: #EEE;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav ul {
+    width: 250px;
+    list-style-type: none;
+    padding: 0px;
+    display: flex;
+    justify-content: space-between;
+}
+
+main {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 10px;
+}
+/* #restaurant-list {
+    display: flex;
+} */
+
+section {
+    width: 350px;
+    margin: 3vh;
+    /* margin-left: 50px; */
+    border: solid 2px #e6e6e6;
+    padding-bottom: 15px;
+}
+
+h2 {
+    /* margin-left: 15px; */
+    padding: 0 15px;
+}
+
+section p {
+    height: 0;
+}
+
+section img {
+    width: 100%;
+    height: auto;
+}
+
+.address {
+    padding-bottom: 20px;
+    font-size: 15.5px;
+}
+
+.reviews {
+    display: flex;
+    /* margin-left: 30px; */
+    padding: 0 20px;
+    /* justify-content: space-around; */
+    
+}
+
+section p {
+    margin-top: 10px;
+    font-size: 14px;
+}
+
+.left {
+    /* display: flex; */
+    width: 80px;
+    /* margin-left: 10px; */
+}
+.right {
+    /* display: flex; */
+    margin-left: 15px;
+    font-weight: bold;
+}
+
+
+hr {
+    display: block;
+    /* margin-top: 0.5em;
+    margin-bottom: 0.5em; */
+    margin-left: auto;
+    margin-right: auto;
+    border: solid 0.1px #e6e6e6;
+    /* border-style: inset;
+    border-width: 0.01px;
+    color: #e6e6e6; */
+}
+
+@media only screen and (max-width: 1000px) {
+    /* Media queries go here */
+    /* main {
+        flex-wrap: wrap;
+    } */
+    section {
+        width: calc(45% - 20px);
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    /* Media queries go here */
+    section {
+        width: 100%;
+    }
+}
