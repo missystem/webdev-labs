@@ -1,8 +1,0 @@
-1. What is a join (just in your own words) and why is it useful?
-By using JOIN we can retrieve data from multiple tables at one time by using related information (column values are the same).
-For example, users.id = posts.user_id, so that we can retrieve information from users table and posts table at one time.
-
-2. Consider the structure of the posts table: why would you want to use a foreign key (user_id) to the users table instead of storing the username, first_name, and last_name in the posts table?
-To maintain space efficiency and reduce duplicate data.
-It is expensive to store information by linking posts to username, first_name or last_name, and will have a lot of duplicate information whenever this user post any new post. 
-In addition, foreign keys can help preventing errors and improving the performance of any operation that is pulling data from tables linked by indexed foreign keys.
