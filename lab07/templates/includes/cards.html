@@ -1,0 +1,130 @@
+<!--
+Within cards.html, ensure that all of the hardcoded posts, 
+comments, images, etc. are replaced by the data stored in 
+the posts context variable (outlined in pink).
+
+When outputting the comments:
+* If there is more than one comment associated with the post:
+    * Display a “view all comments” button
+    * Display only the first comment below the button
+* Otherwise, just display the single comment below the title 
+  of the post (no view all button)
+-->
+
+{% for post in posts %}
+    <!-- a series of cards that display a user’s post and associated comments -->
+    <!-- -------------------------- POST -------------------------- -->
+    <div id="series-of-post-cards">
+        <!-- The top of the card should have the creator’s username and an icon with 3 dots -->
+        <div class="post-top">
+            <!-- creator’s username -->
+            <header class="post-creator-username">{{ post.user.username }}</header>
+            <!-- 3 dots -->
+            <div class="icon">
+                <div class="post-top-icon"><i class="fas fa-ellipsis-h"></i></div>
+            </div>
+        </div>
+        <!-- The picture displayed below the username -->
+        <div class="post-pic">
+            <img alt="{{ post.user.username }}'s picture" src="{{ post.image_url }}">
+        </div>
+        <div class="post-bottom">
+            <!-- a row of icons below the picture -->
+            <section class="row-of-icons">
+                <!-- heart, comment, and plane on the left -->
+                <div class="left-icons">
+                    <div class="icon">
+                        <i class="far fa-heart fa-lg"></i>
+                    </div>
+                    <div class="icon">
+                        <i class="far fa-comment fa-lg"></i>
+                    </div>
+                    <div class="icon">
+                        <i class="far fa-paper-plane fa-lg"></i>
+                    </div>
+                </div>
+                <!-- bookmark on the right -->
+                <div class="right-icons">
+                    <div class="icon">
+                        <i class="far fa-bookmark fa-lg"></i>
+                    </div>
+                </div>
+            </section>
+            <!-- bolded text with the number of likes below the icons -->
+            <section class="num-of-likes">
+                <div class="_likes">
+                    <span>{{ post.likes | length }}</span> likes
+                </div>
+            </section>
+            <!-- The caption of the photo -->
+            <div class="caption">
+                <!-- creator’s username -->
+                <div class="caption-creator-username">
+                    <span class="cap-creator">{{ post.user.username }}</span>
+                    <!-- the text of the caption -->
+                    <span class="cap-text-and-more">
+                        <span class="cap-text">
+                            {{ post.caption }}..
+                        </span>
+                        <span>
+                            <a class="cap-more" href="#">more</a>
+                            <!-- <a class="cap-more" href="#">more</a> -->
+                            <!-- a “more” link (respectively) below the likes -->
+                        </span>
+                    </span>
+                </div>
+            </div>
+            <!-- 2 comments below the caption -->
+            <section class="comments">
+                <!--
+                If there is more than one comment associated with the post:
+                    Display a “view all comments” button
+                    Display only the first comment below the button
+                Otherwise, just display the single comment below the title of the post (no view all button)
+                -->
+                <!-- If more than 0 comment -->
+                {% if post.comments|length > 0 %}
+                    <!-- If there is more than one comment associated with the post: -->
+                    {% if post.comments|length > 1 %}
+                        <!-- Display a “view all comments” button -->
+                        <a class="show-more-comments" href="#">View all {{ post.comments|length }} comments</a>
+                    {% endif %}
+                    <!-- Display only the first comment below the button -->
+                    <!-- Otherwise, just display the single comment below the title of the post (no view all button) -->
+                    <div class="comment-cards">
+                        <!-- commentor’s username -->
+                        <div class="view-comment">{{ post.comments[0].user.username }}</div>
+                        <!-- the text of the comment -->
+                        <div class="comment">{{ post.comments[0].text }}</div> 
+                    </div>
+                {% endif %}
+                <!-- Post time under comments -->
+                <div class="post-time">
+                    <time class="timing" datetime="post.get('time_posted')">
+                        {{post.display_time}}
+                    </time>
+                </div>
+            </section>
+        </div>
+
+        <hr class="line-above-comment">
+        <!-- an “Add a comment section” -->
+        <section class="post-btm-cmt">
+            <div class="smiley-cmt-box">
+                <!-- a smiley face -->
+                <div class="icon">
+                    <div class="smiley">
+                        <i class="far fa-smile  fa-lg"></i>
+                    </div>
+                </div>
+                <!-- a text input -->
+                <form action="/url" method="GET">
+                    <input class="comment-box" aria-label="Add a comment" type="text" placeholder="Add a comment...">
+                </form>
+                
+            </div>
+            <!-- a “Post” link -->
+            <a class="comment-post-button" href="#">Post</a>
+        </section>
+    </div>
+{% endfor %}

@@ -1,0 +1,18 @@
+<!--
+Within stories.html, ensure that all of the hardcoded images and 
+usernames (outlined in pink) are replaced by data stored in the 
+stories context variable. You will need to use a loop.
+-->
+<div id="stories">
+    {% for story in stories %}
+        <div class="status-card">
+            <!-- a circular profile pic on top -->
+            <div class="profile-pic">
+                <img alt="{{ story.title }}" draggable="false"
+                    src="{{ story.user.image_url }}">
+            </div>
+            <!-- a username underneath -->
+            <p class="username" href="#">{{ story.user.username}}</p>
+        </div>
+    {% endfor %}
+</div>

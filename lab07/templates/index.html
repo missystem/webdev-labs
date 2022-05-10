@@ -1,0 +1,67 @@
+<!-- 
+Photo App: https://github.com/missystem/photo-app
+Description: a high-fidelity prototype of a photo sharing app using HTML & CSS
+    
+Authors:
+    - Yuhan Shi
+    - Tianyi Wu
+
+Credits:
+    - icons: https://fontawesome.com/v5.15/icons?m=free
+    - pictures: https://picsum.photos/
+    - outline ideas: https://dev.to/kunaal438/how-to-make-instagram-clone-using-html-css-fully-responsive-49co
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Photo App</title>
+    <!-- Google Font - Comfortaa & Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+    <!-- ========================== Navigation Bar ========================== -->
+    {% include 'includes/navbar.html' %}
+
+
+    <section id="main">
+        <div class="wrapper">
+            <div class="left-panel">
+                <!-- ======================== Stories Panel ======================== -->
+                <!-- 5 stories -->
+                {% include 'includes/stories.html' %}
+                <!-- ============================ POSTS ============================ -->
+                {% include 'includes/cards.html' %}
+            </div>
+        </div>
+    </section>
+
+<!-- =========================== Recommendation Panel =========================== -->
+    <section id="main">
+        <div class="wrapper">
+            {% include 'includes/suggestions.html' %}
+        </div>
+    </section>
+</body>
+<html>
+
+<!-- 
+In a comment at the end of your HTML file, describe how you would add a feature so users can easily add alt-text to their images
+Hint: a way to do so exists but is difficult to find
+Ans:    
+    During posting section, they can have a place to write texts so that text-alt can be done.
+    When you're trying to post the content, there could be advanced settings for them to choose before
+    actually sending out.
+    Under the advanced setting, there should be a choice of "write alt text".
+    This allows users to wrtie alt text as they want and could save their work after with the button "save".
+    Finally, the alt text will be indicated on the post review, once approved by user, it can be published.
+    Therefore, alt text function is being realized as the above description.
+-->

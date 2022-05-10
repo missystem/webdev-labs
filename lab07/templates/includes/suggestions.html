@@ -1,0 +1,53 @@
+<!--
+Within suggestions.html, 
+ensure that all of the hardcoded content (outlined in pink) is replaced 
+by data stored in the suggestions and user context variables. This includes:
+* The current user’s username and profile pic, which should come from user
+* Each of the suggested user accounts, which should come from suggestions.
+-->
+
+<div id="recommendation-panel">
+    <!-- ======================== Personal Card ======================== -->
+    <!-- A circular profile pic of the current user -->
+    <div id="profile-card-self">
+        <div id="profile-pic-self">
+            <img alt="{{ user.username }}'s profile picture" draggable="false"
+                src=" {{user.image_url}} ">
+        </div>
+        <!-- a username of the current user -->
+        <div>
+            <h1 id="username-self">{{ user.username }}</h1>
+        </div>
+    </div>
+    
+    <!-- “Suggestions for you” text -->
+    <div class="suggestions-for-you">Suggestions for you</div>
+
+    <!-- =========================== Suggested Users =========================== -->
+    <!-- 5 suggested accounts -->
+    <div class="suggestions">
+        
+        {% for suggestion in suggestions %}
+            <div class="user-profile-card">
+                <div class="sug-profile-card">
+                    <!-- photo of a suggested account -->
+                    <div class="sug-prof-pic">
+                        <img alt="{{ suggestion.username }}'s profile picture" draggable="false"
+                            src="{{ suggestion.image_url}}">
+                    </div>
+                    <div class="sug-user-card">
+                        <p>
+                            <!-- username of a suggested account -->
+                            <div class="sug-user-name">{{ suggestion.username }}</div>
+                            <!-- “suggested for you” text below the username -->
+                            <div class="suggested-for-you">suggested for you</div>
+                        </p>
+                    </div>
+                </div>
+                <!-- link to “follow” the user -->
+                <!-- the “follow” link should be blue but not have an underline -->
+                <a class="follow-action-button" href="#">follow</a>
+            </div>
+        {% endfor %}
+    </div>
+</div>
