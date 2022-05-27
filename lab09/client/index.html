@@ -33,7 +33,7 @@
 
 
     <section class="messages">
-        <div id="chat-container" class="hidden">
+        <div id="chat-container" class="hidden" role="log">
             <!-- 2. Append new chat messages to the #chat container -->
             <div id="chat" aria-live="polite" aria-atomic="false" aria-relevant="additions"></div>
         </div>
@@ -49,7 +49,7 @@
         <div id="users-list" aria-live="polite" aria-atomic="false" aria-relevant="text additions">
             <ul></ul>
         </div>
-        <span id="update" aria-live="polite" aria-atomic="false" aria-relevant="text additions"></span>
+        <span id="update" role="status" aria-live="polite" aria-atomic="false" aria-relevant="text additions"></span>
         </span>
     </section>
 </body>
