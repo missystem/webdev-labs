@@ -155,46 +155,71 @@ const handleServerMessage = ev => {
     if (data.type === "login") {
         console.log('A user has just connected:');
         console.log(data);
-        showAllUsers(data);
+        const firstLogin = document.querySelectorAll(`#users-list li`).length === 0;
+        if (firstLogin) {
+            showAllUsers(data);
+        } else {
+            addUser(data);
+        }
     } else if (data.type === "disconnect") {
         console.log('A user has just disconnected:');
         console.log(data);
-        showAllUsers(data);
+        removeUser(data);
     } else if (data.type === "chat") {
         console.log('A user has just sent a chat message:');
         console.log(data);
-        showChatMessages(data);
+        showChat(data);
     } else {
         console.error("Message type not recognized.");
         console.log(data);
     }
 };
 
+// code that responds to messages received from the server:
 const showAllUsers = data => {
-    const userListItems = data.active_users.map(username => {
-        return `
-            <li id="${username}">
-                ${username}
-            </li>
-        `
-    }).join('\n')
-    qs('#users-list ul').innerHTML = userListItems;
+    // screen reader reads this; invisible to user:
+    qs('#users-list').insertAdjacentHTML('afterbegin', '<p class="context">Current Users</p>');
+
+    const template = data.active_users.map(user => {
+        return `<li id="${user}">${user}</li>`
+    }).join('');
+    qs('#users-list ul').innerHTML = template;
+
+    // screen reader reads this for additional context:
+    qs('#update').innerHTML = "<p>You have joined the chat</p>";
+
+    // after screen initializes, turn aria live off.
+    setTimeout(() => {
+        qs('#users-list').setAttribute("aria-live", "off");
+    }, 2000);
 };
 
-const showChatMessages = data => {
-    if (data.username === username) {
-        const message = `
-                    <div class="right">
-                        <strong>You:</strong> ${data.text}
-                    </div>
-                    `;
-        qs('#chat').insertAdjacentHTML("beforeend", message);
-    } else {
-        const message = `
-                    <div class="left">
-                        <strong>${data.username}:</strong> ${data.text}
-                    </div>
-                    `;
-        qs('#chat').insertAdjacentHTML("beforeend", message);
+const removeUser = data => {
+    const removed = data.user_left;
+    qs('#update').innerHTML = `<p>${removed} has left the chat</p>`;
+    console.log(removed);
+    document.getElementById(removed).remove();
+};
+
+const addUser = data => {
+    qs('#users-list').setAttribute("aria-live", "off");
+    const username = data.user_joined;
+    const template = `
+            <li id="${username}">${username}</li>
+        `;
+
+    if (!document.getElementById('data.user_joined')) {
+        qs('#users-list ul').insertAdjacentHTML('beforeend', template);
     }
-}
+
+    // screen reader reads this:
+    qs('#update').innerHTML = `<p>${username} has joined the chat</p>`;
+};
+
+const showChat = data => {
+    if (data.username === username) {
+        qs("#chat").insertAdjacentHTML("beforeend", `<div class="right"><strong>You:</strong> <span class="context">say</span> ${data.text}</div>`);
+    } else {
+        qs("#chat").insertAdjacentHTML("beforeend", `<div class="left"><strong>${data.username}:</strong> <span class="context">says</span> ${data.text}</div>`);
+    }
+};
